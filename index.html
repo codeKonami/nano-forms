@@ -1,0 +1,63 @@
+<html>
+<body>
+  <table>
+    <tr>
+      <td>Left</td>
+      <td><input type="number" id="left" value="10" /></td>
+    </tr>
+    <tr>
+      <td>Right</td>
+      <td><input type="number" id="right" value="5" /></td>
+    </tr>
+    <tr>
+      <td>Operator</td>
+      <td>
+        <select id="operator">
+          <option value="add">Add</option>
+          <option value="substract">Substract</option>
+          <option value="multiply">Multiply</option>
+          <option value="pow">Left To the power of Right</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><button id="compute">Launch computation</button></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Result:</td>
+      <td><input type="number" id="result" disabled /></td>
+    </tr>
+  </table>
+</body>
+<script>
+  // When I click on the button
+  document.getElementById("compute").addEventListener("click", () => {
+    // This function executes
+    const left = document.getElementById("left").valueAsNumber;
+    const right = document.getElementById("right").valueAsNumber;
+    const operator = document.getElementById("operator").value;
+    let result = undefined;
+    switch (operator) {
+      case 'add':
+        result = left + right;
+        break;
+      case 'substract':
+        result = left - right;
+        break;
+      case 'multiply':
+        result = left * right;
+        break;
+      case 'pow':
+        result = Math.pow(left, right)
+        break;
+      default:
+        result = undefined;
+        break;
+    }
+    document.getElementById("result").valueAsNumber = result.toFixed(2);
+  }
+  );
+</script>
+
+</html>
